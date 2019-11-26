@@ -46,10 +46,12 @@ input.erase(0, input.find(delimiter) + delimiter.length());
 //cout<<"Numbered Pinyin:"<<value->getPinyinNumbered()<<endl;
 value->setBasicPinyin(value->getPinyinNumbered());
 //cout<<"basic pinyin:"+value->getBasicPinyin()<<endl;
+input.erase(0, input.find("//") +std::string("//").length());
 
- // cout<<"output:"<<input<<endl;
+  value->setDefinitions(input);
 
   value->setPinyin(value->getPinyinNumbered());
   cout<<"Pinyin:"<<value->getPinyin()<<endl;;
+  value->printDefinitions();
   return value; 
 }

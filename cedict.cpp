@@ -221,3 +221,17 @@ std::string cedict::convertToTones(std::string input) {
 	return input;
 }
 
+void cedict::setDefinitions(std::string input) {
+	std::stringstream ss(input);
+    std::string token;
+	char c = '/';
+    while (std::getline(ss, token, c)) {
+		this->addDefinition(token);
+    }	
+}
+void cedict::printDefinitions(){
+	for(auto it = this->Definitions.begin(); it < this->Definitions.end(); ++it){
+		std::cout<<*it<<std::endl;
+	}
+}
+

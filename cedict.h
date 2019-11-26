@@ -18,8 +18,10 @@ public:
 	void setPinyin(std::string input);
 	//void setDefinition(std::string input);
 	void addDefinition(std::string input);
+	void setDefinitions(std::string input);
 	void setId(int input);
 	void setBasicPinyin(std::string str);
+	void printDefinitions();
 	std::string getBasicPinyin();
 
 	std::string convertToTones(std::string input);
