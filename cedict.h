@@ -19,6 +19,8 @@ public:
 	//void setDefinition(std::string input);
 	void addDefinition(std::string input);
 	void setId(int input);
+	void setBasicPinyin(std::string str);
+	std::string getBasicPinyin();
 
 
 
@@ -27,6 +29,7 @@ private:
 	std::string Simplified;
 	std::string PinyinNumbered;
 	std::string Pinyin;
+	std::string BasicPinyin;
 	std::vector<std::string> Definitions;
 	int Id;
 

@@ -1,4 +1,5 @@
 #include "cedict.h"
+#include <algorithm>
 cedict::cedict() {
 	this->Traditional = "";
 	this->Simplified = "";
@@ -63,4 +64,17 @@ void cedict::setPinyinNumbered(std::string input) {
 }
 void cedict::addDefinition(std::string input) {
 	this->Definitions.push_back(input);
+}
+
+void cedict::setBasicPinyin(std::string str){
+	str.erase(std::remove(str.begin(), str.end(), '1'), str.end());
+	str.erase(std::remove(str.begin(), str.end(), '2'), str.end());
+	str.erase(std::remove(str.begin(), str.end(), '3'), str.end());
+	str.erase(std::remove(str.begin(), str.end(), '4'), str.end());
+	str.erase(std::remove(str.begin(), str.end(), '5'), str.end());
+	this->BasicPinyin = str;
+
+}
+std::string cedict::getBasicPinyin(){
+	return this->BasicPinyin;
 }
