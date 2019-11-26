@@ -5,7 +5,7 @@ using namespace std;
 cedict* parseLine(std::string input);
 int main() {
   ifstream myfile;
-  myfile.open("small.txt");
+  myfile.open("cedict._ts.u8");
   string line;
 
 
@@ -34,21 +34,22 @@ cedict* parseLine(std::string input){
   std::string delimiter = " ";
   value->setTraditional(input.substr(0,input.find(delimiter)));
   input.erase(0, input.find(delimiter) + delimiter.length());
-  cout<<"traditional:"<<value->getTraditional()<<endl;
+  //cout<<"traditional:"<<value->getTraditional()<<endl;
   value->setSimplified(input.substr(0,input.find(delimiter)));
-  cout<<"Simplified:"<<value->getSimplified()<<endl;
+  //cout<<"Simplified:"<<value->getSimplified()<<endl;
   input.erase(0, input.find(delimiter) + delimiter.length()+1);
 
 // Get numbered pinyin
 delimiter = "]";
 value->setPinyinNumbered(input.substr(0,input.find(delimiter)));
 input.erase(0, input.find(delimiter) + delimiter.length());
-cout<<"Numbered Pinyin:"<<value->getPinyinNumbered()<<endl;
+//cout<<"Numbered Pinyin:"<<value->getPinyinNumbered()<<endl;
 value->setBasicPinyin(value->getPinyinNumbered());
-cout<<"basic pinyin:"+value->getBasicPinyin()<<endl;
+//cout<<"basic pinyin:"+value->getBasicPinyin()<<endl;
 
-  cout<<"output:"<<input<<endl;
+ // cout<<"output:"<<input<<endl;
 
   value->setPinyin(value->getPinyinNumbered());
+  cout<<"Pinyin:"<<value->getPinyin()<<endl;;
   return value; 
 }
