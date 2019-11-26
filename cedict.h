@@ -22,6 +22,8 @@ public:
 	void setBasicPinyin(std::string str);
 	std::string getBasicPinyin();
 
+	std::string convertToTones(std::string input);
+
 
 
 private:

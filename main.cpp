@@ -48,5 +48,7 @@ value->setBasicPinyin(value->getPinyinNumbered());
 cout<<"basic pinyin:"+value->getBasicPinyin()<<endl;
 
   cout<<"output:"<<input<<endl;
+
+  value->setPinyin(value->getPinyinNumbered());
   return value; 
 }
