@@ -13,15 +13,17 @@ int main() {
 
   if (myfile.is_open())
   {
-      
+     std::vector<cedict*> definitions;
+      cout<<"begin parse"<<endl;
      while ( getline (myfile,line) )
 	   {
         if(line.at(0) != '#') {
-  	      cout << line << '\n';
-          parseLine(line);
+  	     // cout << line << '\n';
+         definitions.push_back(parseLine(line));
   	    }
      }
      myfile.close();
+     cout<<"done parse. length:"<<definitions.size()<<endl;
      }
     else cout << "Unable to open file";
 }
@@ -51,7 +53,7 @@ input.erase(0, input.find("//") +std::string("//").length());
   value->setDefinitions(input);
 
   value->setPinyin(value->getPinyinNumbered());
-  cout<<"Pinyin:"<<value->getPinyin()<<endl;;
-  value->printDefinitions();
+  //cout<<"Pinyin:"<<value->getPinyin()<<endl;;
+  //value->printDefinitions();
   return value; 
 }
