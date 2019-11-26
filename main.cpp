@@ -24,6 +24,13 @@ int main() {
      }
      myfile.close();
      cout<<"done parse. length:"<<definitions.size()<<endl;
+     cout<<"Begin cleaning up data deleting everything added"<<endl;
+     for (auto p : definitions)
+      {
+        delete p;
+      } 
+    definitions.clear();
+    cout<<"done clearing data"<<endl;
      }
     else cout << "Unable to open file";
 }
